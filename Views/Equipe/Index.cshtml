@@ -6,7 +6,7 @@
 }
 
 <form
-    method="POST" action='@Url.Action("Cadastrar")'>
+    method="POST" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
     <label>ID da equipe</label>
     <input type="text" name="IdEquipe"> </input>
 
@@ -14,7 +14,7 @@
     <input type="text" name="Nome"> </input>
 
     <label>Imagem</label>
-    <input type="text" name="Imagem"> </input>
+    <input type="file" name="Imagem">
 
     <button type="submit">Cadastrar</button>
 
@@ -34,7 +34,9 @@
             <tr>
                 <td>@equipe.IdEquipe</td>
                 <td>@equipe.Nome</td>
-                <td>@equipe.Imagem</td>
+                <td><img src="/img/Equipes/@equipe.Imagem" alt="Imagem da Equipe @equipe.Nome" width="60"></td> 
+                <td><a asp-area="Excluir esses dados" asp-controller="Equipe" asp-asp-action="Excluir" asp-asp-route-id="@equipe.IdEquipe"></a></td>
+
             </tr>
         }
     </tbody>

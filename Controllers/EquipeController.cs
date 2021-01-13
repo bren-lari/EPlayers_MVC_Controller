@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using EPlayers_MVC.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,16 +30,53 @@ namespace EPlayers_MVC.Controllers
             Equipe novaEquipe = new Equipe();
             novaEquipe.IdEquipe = Int32.Parse(form["IdEquipe"]);
             novaEquipe.Nome = form["Nome"];
-            novaEquipe.Imagem = form["Imagem"];
 
-            // criamos a equipe para salvar ela no CSV
-            // adicionamos ela 
-            // e returnamos ela para a mesma página com "LolcalRedirect"
+            // nício do upload de imagem
+            // estamos verificando se o usuário anexou pelo menos um arquivo
+            if(form.Files.Count > 0)
+            {
+                // se ele anexar...
+                // armazenamos o arquivo/foto na nossa váriavel lista/file
+             var file = form.Files[0];
+             var folder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Equipes");
+
+            //  verificamos se a pasta equipes existe
+             if(!Directory.Exists(folder))
+             {
+                 Directory.CreateDirectory(folder);
+             }
+
+             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", folder, file.FileName);
+
+             using(var stream = new FileStream(path, FileMode.Create))
+             {
+                //  salvamos o arquivo no caminho 
+                 file.CopyTo(stream);
+             }
+                novaEquipe.Imagem = file.FileName;
+
+            }
+            else{
+                novaEquipe.Imagem = "padrao.png";
+                // término do upload
+            }
+
             equipeModel.Create(novaEquipe);
 
             ViewBag.Equipes = equipeModel.ReadAll();
 
             return LocalRedirect("~/Equipe/Listar");
         }
+
+            // htpps://localhost:5001/Equipe/1
+            [Route("id")]
+            
+            public IActionResult Excluir(int id){
+                equipeModel.Delete(id);
+                ViewBag.Equipes = equipeModel.ReadAll();
+                
+                return LocalRedirect("~/Equipe/Listar");
+            }
+
     }
 }
