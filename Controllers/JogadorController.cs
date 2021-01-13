@@ -20,7 +20,7 @@ namespace EPlayers_MVC.Controllers
         }
 
         [Route("Cadastrar")]
-        public IActionResult CadastrarJogador(IFormCollection form)
+        public IActionResult Cadastrar(IFormCollection form)
         {
             // criamos uma instância para equipes, através de um formulário armazenamos as informações como: Id da equipe, Nome da equipe e a imagem da equipe
             
