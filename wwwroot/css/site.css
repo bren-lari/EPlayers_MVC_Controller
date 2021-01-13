@@ -31,6 +31,10 @@ a {
   font-weight: bold;
 }
 
+a.nav-link{
+  font-size: 18px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

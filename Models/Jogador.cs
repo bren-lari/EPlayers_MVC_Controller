@@ -18,7 +18,6 @@ namespace EPlayers_MVC.Models
             CreateFolderAndFile(PATH);
         }
 
-
         public string Prepare(Jogador j){
             return $"{j.IdJogador};{j.Nome};{j.IdEquipe}";
         }
@@ -30,7 +29,7 @@ namespace EPlayers_MVC.Models
 
         public void Delete(int id){
 
-             List<string> linhas  = ReadAllLinesCSV(PATH);
+            List<string> linhas  = ReadAllLinesCSV(PATH);
 
             linhas.RemoveAll(x => x.Split(";")[0] == id.ToString());
 

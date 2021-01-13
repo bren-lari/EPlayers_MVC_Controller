@@ -14392,6 +14392,11 @@
   "RootNamespace": "EPlayers_MVC",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\dev\\Desktop\\EPlayers_MVC\\Views\\Noticia\\Index.cshtml",
+      "TargetPath": "Views\\Noticia\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\dev\\Desktop\\EPlayers_MVC\\Views\\Jogador\\Index.cshtml",
       "TargetPath": "Views\\Jogador\\Index.cshtml",
       "FileKind": "mvc"
