@@ -68,9 +68,9 @@ namespace EPlayers_MVC.Controllers
             return LocalRedirect("~/Equipe/Listar");
         }
 
+            
             // htpps://localhost:5001/Equipe/1
             [Route("id")]
-            
             public IActionResult Excluir(int id){
                 equipeModel.Delete(id);
                 ViewBag.Equipes = equipeModel.ReadAll();

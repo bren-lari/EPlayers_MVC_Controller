@@ -39,5 +39,13 @@ namespace EPlayers_MVC.Controllers
             return LocalRedirect("~/Jogador/Listar");
         }
 
+        [Route("id")]
+            public IActionResult Excluir(int id){
+                jogador.Delete(id);
+                ViewBag.Equipes = jogador.ReadAll();
+                
+                return LocalRedirect("~/Equipe/Listar");
+            }
+
     }
 }
