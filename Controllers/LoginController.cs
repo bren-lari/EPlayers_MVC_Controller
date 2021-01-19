@@ -36,11 +36,19 @@ namespace EPlayers_MVC_Controller.Controllers
             // Redirecionamos o usuário logado caso encontrado
             if(logado != null)
             {
+                HttpContext.Session.SetString("_UserName", logado.Split(";")[1]);
                 return LocalRedirect("~/");
             }
 
             Mensagem = "Senha ou email incorretos, tente novamente...";
             return LocalRedirect("~/Login");
                 }
+
+            [Microsoft.AspNetCore.Mvc.Route("Logout")]
+            public IActionResult Logout()
+            {
+                HttpContext.Session.Remove("_UserName");
+                return LocalRedirect("~/");
+            }
             }
 }
