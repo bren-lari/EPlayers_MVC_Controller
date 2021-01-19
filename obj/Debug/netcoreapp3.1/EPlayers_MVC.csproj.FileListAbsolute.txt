@@ -73,3 +73,4 @@ C:\Users\fic\Desktop\MVC_Eplaye\EPlayers_MVC_Controller\obj\Debug\netcoreapp3.1\
 C:\Users\fic\Desktop\MVC_Eplaye\EPlayers_MVC_Controller\obj\Debug\netcoreapp3.1\EPlayers_MVC.dll
 C:\Users\fic\Desktop\MVC_Eplaye\EPlayers_MVC_Controller\obj\Debug\netcoreapp3.1\EPlayers_MVC.pdb
 C:\Users\fic\Desktop\MVC_Eplaye\EPlayers_MVC_Controller\obj\Debug\netcoreapp3.1\EPlayers_MVC.csproj.CopyComplete
+C:\Users\fic\Desktop\MVC_Eplaye\EPlayers_MVC_Controller\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs

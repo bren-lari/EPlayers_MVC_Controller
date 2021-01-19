@@ -9,14 +9,13 @@ namespace EPlayers_MVC.Controllers
     public class JogadorController : Controller
     {
         Jogador jogador = new Jogador();
-        
-        [Route("Listar")]
+         Equipe equipeModel = new Equipe();
         public IActionResult Index()
         {
-            ViewBag.Jogadores = jogador.ReadAll();
+            ViewBag.Equipes     = equipeModel.ReadAll();
+            ViewBag.Jogadores   = jogador.ReadAll();
            
             return View();
-            
         }
 
         [Route("Cadastrar")]
@@ -24,11 +23,11 @@ namespace EPlayers_MVC.Controllers
         {
             // criamos uma instância para equipes, através de um formulário armazenamos as informações como: Id da equipe, Nome da equipe e a imagem da equipe
             
-           Jogador novoJogador = new Jogador();
-            novoJogador.IdJogador = Int32.Parse(form["IdJogador"]);
-            novoJogador.Nome = form["Nome"];
-           novoJogador.IdEquipe = Int32.Parse(form["IdEquipe"]);
-
+           Jogador novoJogador      = new Jogador();
+            novoJogador.IdJogador   = Int32.Parse(form["IdJogador"]);
+            novoJogador.Nome        = form["Nome"];
+            novoJogador.Email       = form["Email"];
+            novoJogador.Senha       = form["Senha"];
             // criamos a equipe para salvar ela no CSV
             // adicionamos ela 
             // e returnamos ela para a mesma página com "LolcalRedirect"
@@ -36,16 +35,9 @@ namespace EPlayers_MVC.Controllers
 
             ViewBag.Jogadores = jogador.ReadAll();
 
-            return LocalRedirect("~/Jogador/Listar");
+            return LocalRedirect("~/Jogador");
         }
 
-        [Route("id")]
-            public IActionResult Excluir(int id){
-                jogador.Delete(id);
-                ViewBag.Equipes = jogador.ReadAll();
-                
-                return LocalRedirect("~/Equipe/Listar");
-            }
 
     }
 }
